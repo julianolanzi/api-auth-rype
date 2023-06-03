@@ -2,7 +2,7 @@ name: Pipeline Auth Rype CI
 on:
   push:
     branchs:
-      - master
+      - [ master ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,12 +10,16 @@ jobs:
       - name: Checkout do Repo
         uses: actions/checkout@v1
       - name: Deploy Produção
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{secrets.SERVER_SSH_KEY}}
-          ARGS: "-rltgoDzvO --delete"
-          SOURCE: "bin/"
-          REMOTE_HOST: ${{secrets.REMOTE_HOST}}
-          REMOTE_USER: ${{secrets.REMOTE_USER}}
-          REMOTE_PORT: ${{secrets.REMOTE_PORT}}
-          TARGET: ${{secrets.TARGET}}
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.REMOTE_HOST}}
+          username: ${{secrets.REMOTE_USER}}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: ${{secrets.SERVER_SSH_KEY}}
+          target: ${{secrets.TARGET}}
+          script: |
+          cd home/api.rypegg.com/auth
+          git pull origin master
+          git status
+          
+        
