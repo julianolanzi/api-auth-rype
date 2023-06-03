@@ -12,11 +12,10 @@ jobs:
       - name: Deploy Produção
         uses: appleboy/ssh-action@master
         with:
-          host: ${{secrets.REMOTE_HOST}}
-          username: ${{secrets.REMOTE_USER}}
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.PRIVATE_KEY }}
-          port: ${{secrets.SERVER_SSH_KEY}}
-          target: ${{secrets.TARGET}}
+          port: 22
           script: |
             cd ~/home/api.rypegg.com/auth
             git pull origin master
