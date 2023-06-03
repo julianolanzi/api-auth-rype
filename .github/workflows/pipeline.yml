@@ -10,10 +10,10 @@ jobs:
       - name: Checkout do Repo
         uses: actions/checkout@v1
       - name: Deploy Produção
-        uses: easingthemes/ssh-deploy@main
+        uses: easingthemes/ssh-deploy@master
         env:
           SSH_PRIVATE_KEY: ${{secrets.SERVER_SSH_KEY}}
-          ARGS: "-rltgoDzVO --delete"
+          ARGS: "-rltgoDzvO --delete"
           SOURCE: "src/"
           REMOTE_HOST: ${{secrets.REMOTE_HOST}}
           REMOTE_USER: ${{secrets.REMOTE_USER}}
