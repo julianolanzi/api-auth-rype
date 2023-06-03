@@ -12,12 +12,11 @@ jobs:
       - name: Deploy Produção
         uses: appleboy/ssh-action@master
         with:
-          source: 'src/'
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
-          script: 'cd /home/api.rypegg.com/auth'
+          script: 'cd /home/api.rypegg.com'
             
             
           
