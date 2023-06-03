@@ -16,9 +16,8 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
-          script: |
-            cd /home/api.rypegg.com/auth
-            git pull origin master
-            git status
+          script: 'cd /home/api.rypegg.com/auth'
+            
+            
           
         
