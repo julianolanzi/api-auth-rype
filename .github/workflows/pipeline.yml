@@ -18,8 +18,8 @@ jobs:
           port: ${{secrets.SERVER_SSH_KEY}}
           target: ${{secrets.TARGET}}
           script: |
-          cd home/api.rypegg.com/auth
-          git pull origin master
-          git status
+            cd ~/home/api.rypegg.com/auth
+            git pull origin master
+            git status
           
         
