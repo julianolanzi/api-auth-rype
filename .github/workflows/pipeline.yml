@@ -12,12 +12,11 @@ jobs:
 
       - name: Copy repository contents via scp
         uses: appleboy/scp-action@master
-        env:
+        with:
           HOST: ${{ secrets.REMOTE_HOST }}
           USERNAME: ${{ secrets.REMOTE_USER }}
-          PORT: 22
           KEY: ${{ secrets.SERVER_SSH_KEY }}
-        with:
+          PORT: 22
           source: "."
           target: "home/api.rypegg.com/auth"
 
