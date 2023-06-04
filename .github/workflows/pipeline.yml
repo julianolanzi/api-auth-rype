@@ -19,7 +19,7 @@ jobs:
             PORT: 22
             REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
             REMOTE_USER: ${{ secrets.REMOTE_USER }}
-            TARGET: /home/auth.api.rypegg.com/public_html
+            TARGET: /home/auth.api.rypegg.com
             
           
         
