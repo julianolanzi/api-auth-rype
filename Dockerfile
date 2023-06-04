@@ -6,4 +6,4 @@ RUN npm install
 COPY --chown=node:node . .
 EXPOSE 3333
 
-CMD ["npm", "start"]
+CMD ["npm run start"]
