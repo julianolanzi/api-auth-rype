@@ -19,7 +19,7 @@ jobs:
           script: | 
             cd /
             cd home/api.rypegg.com/auth
-            echo hello world > hello.txt
+            git pull origin master
             
           
         
