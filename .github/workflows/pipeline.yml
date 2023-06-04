@@ -18,6 +18,10 @@ jobs:
           KEY: ${{ secrets.SERVER_SSH_KEY }}
           PORT: 22
           source: "."
+          script: | 
+            cd /
+            cd home/api.rypegg.com/auth
+            ls
           target: "home/api.rypegg.com/auth"
 
       - name: Deploy Produção
