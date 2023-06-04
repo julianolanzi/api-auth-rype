@@ -17,9 +17,9 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
           script: | 
-          cd ..
-          cd home/api.rypegg.com/auth
-          echo hello world > hello.txt
+            cd /
+            cd home/api.rypegg.com/auth
+            echo hello world > hello.txt
             
           
         
