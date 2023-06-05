@@ -29,4 +29,4 @@ jobs:
           script: | 
             cd /
             cd home/auth.api.rypegg.com/public_html
-            echo hello world > hello.txt
+            docker-compose up -d --build
