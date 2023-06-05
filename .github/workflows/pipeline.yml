@@ -28,5 +28,5 @@ jobs:
           port: 22
           script: | 
             cd /
-            cd home/api.rypegg.com/auth
+            cd home/auth.api.rypegg.com/public_html
             echo hello world > hello.txt
