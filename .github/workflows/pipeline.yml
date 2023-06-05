@@ -21,7 +21,7 @@ jobs:
             REMOTE_USER: ${{ secrets.REMOTE_USER }}
             TARGET: /home/auth.api.rypegg.com/public_html
             SCRIPT_AFTER: |
-              docker-compose up -d
+              docker-compose up -d --build
             
           
         
