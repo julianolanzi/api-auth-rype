@@ -4,7 +4,7 @@ const version = require('../../../package.json');
 
 router.get('/', (req, res, next) => {
     res.status(200).send({
-        title: 'Rype API Auth Onlines',
+        title: 'Rype API Auth Online',
         version: version.version
     });
 })

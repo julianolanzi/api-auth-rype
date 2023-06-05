@@ -19,7 +19,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: /home/auth.api.rypegg.com/public_html
-      - name: Comandos em produção
+      - name: Atualizando o ambiente
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.REMOTE_HOST }}
