@@ -2,7 +2,7 @@ name: Pipeline Auth Rype CI
 on:
   push:
     branchs:
-      - [ master ]
+      - [master]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,14 +13,19 @@ jobs:
       - name: Deploy para Producao
         uses: easingthemes/ssh-deploy@main
         env:
-            SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-            SOURCE: "/"
-            PORT: 22
-            REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-            REMOTE_USER: ${{ secrets.REMOTE_USER }}
-            TARGET: /home/auth.api.rypegg.com/public_html
-            SCRIPT_AFTER: |
-              touch filename.txt
-            
-          
-        
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          SOURCE: "/"
+          PORT: 22
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: /home/auth.api.rypegg.com/public_html
+      - name: Executando comandos
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          password: ${{ secrets.SERVER_SSH_KEY }}
+          port: 22
+          script: |
+            cd /home/auth.api.rypegg.com/public_html
+            touch ttt.txt
