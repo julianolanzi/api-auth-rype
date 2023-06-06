@@ -11,7 +11,7 @@ exports.generateToken = (params = {}) => {
 };
 
 exports.verifyToken = (req, res, next) => {
-  
+
     const authHeader = req.headers.authorization;
 
     if (!authHeader)
@@ -42,9 +42,6 @@ exports.decodeToken = async (token) => {
     var data = await jwt.verify(token, process.env.SECRET);
     return data;
 }
-
-
-
 exports.isAdmin = function (req, res, next) {
     var authHeader = req.headers.authorization;
     if (!authHeader)
@@ -100,7 +97,7 @@ exports.isAdminTeam = function (req, res, next) {
             return res.status(401).send({ error: 'Token invalid' });
 
         const user = decoded;
-       
+
         if (user.roles == 'admin') {
             req.userId = decoded.id;
             return next();

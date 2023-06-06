@@ -7,10 +7,8 @@ const cors = require('cors');
 
 const app = express();
 
-
 const authRoute = require('./app/routes/auth.routes');
 const indexRoute = require('./app/routes/index.routes');
-
 
 app.use(bodyParser.json({
     limit: '5mb'
@@ -30,12 +28,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-
-
 app.use('/', indexRoute);
 app.use('/auth', authRoute);
-
-
-
 
 module.exports = app;

@@ -4,9 +4,8 @@ const authMidleware = require('../middlewares/auth');
 const bcrypt = require('bcryptjs/dist/bcrypt');
 const crypto = require('crypto');
 const dotenv = require('dotenv');
-
-
-
+const teamService = require('../services/teams/teams.service');
+const emailService = require('../services/emails/email-service');
 
 exports.login = async (req, res, next) => {
     const { email, password } = req.body;
@@ -65,11 +64,10 @@ exports.login = async (req, res, next) => {
 
 
     } catch (error) {
+        console.log(error);
         res.status(400).send({ error: 'Login falhou' })
     }
 }
-
-
 exports.forgotPassword = async (req, res, next) => {
     const { email } = req.body;
     try {
@@ -93,13 +91,13 @@ exports.forgotPassword = async (req, res, next) => {
         const message = emailService.forgotPassword(data, url);
         emailService.sendEmail(message);
 
-        return res.status(200).send({ message: 'Senha de senha solicitado com sucesso' });
+        return res.status(200).send({ message: 'troca de senha solicitado com sucesso' });
 
     } catch (error) {
+        console.log(error);
         res.status(400).send({ error: 'Erro ao trocar a senha tente novamente' })
     }
 }
-
 exports.resetPassword = async (req, res, next) => {
     const { password } = req.body;
     const { token } = req.params;
