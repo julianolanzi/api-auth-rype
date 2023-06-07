@@ -24,7 +24,6 @@ exports.login = async (req, res, next) => {
 
         const roles = await teamService.findUserTeam(user.id);
 
-
         if (roles) {
             res.status(200).send({
                 id: user.id,
@@ -40,6 +39,8 @@ exports.login = async (req, res, next) => {
                     email: user.email,
                     nickname: user.nickname,
                     url: user.url,
+                    role: user.roles,
+                    data: roles,
                 })
             })
         }
@@ -58,13 +59,14 @@ exports.login = async (req, res, next) => {
                     email: user.email,
                     nickname: user.nickname,
                     url: user.url,
+                    role: user.roles,
                 })
             })
         }
 
 
     } catch (error) {
-        console.log(error);
+     
         res.status(400).send({ error: 'Login falhou' })
     }
 }
