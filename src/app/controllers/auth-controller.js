@@ -89,6 +89,7 @@ exports.forgotPassword = async (req, res, next) => {
 
         const url = `https://dev.rypegg.com.br/reset-password/${crypt}`;
 
+        
 
         const message = emailService.forgotPassword(data, url);
         emailService.sendEmail(message);
